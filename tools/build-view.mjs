@@ -16,4 +16,7 @@ const from = (() => { try { own.resolve('esbuild'); own.resolve('react'); return
 const { build } = await import(createRequire(join(from, 'package.json')).resolve('esbuild'));
 await build({ entryPoints: [join(root, 'view/main.jsx')], bundle: true, format: 'iife', minify: true, jsx: 'automatic', target: ['es2020', 'safari15'],
   define: { 'process.env.NODE_ENV': '"production"' }, outfile: join(root, 'dist/rps-view.js'), legalComments: 'none', nodePaths: [join(from, 'node_modules')] });
-console.log(`built dist/rps-view.js (esbuild and React from ${from === root ? 'this package' : 'packages/arena-web'})`);
+// VERSION 5'S VIEWS: the table and what is around it (view/main-v5.jsx) - version 4's bundle above stays the same bytes
+await build({ entryPoints: [join(root, 'view/main-v5.jsx')], bundle: true, format: 'iife', minify: true, jsx: 'automatic', target: ['es2020', 'safari15'],
+  define: { 'process.env.NODE_ENV': '"production"' }, outfile: join(root, 'dist/rps-view-v5.js'), legalComments: 'none', nodePaths: [join(from, 'node_modules')] });
+console.log(`built dist/rps-view.js and dist/rps-view-v5.js (esbuild and React from ${from === root ? 'this package' : 'packages/arena-web'})`);
