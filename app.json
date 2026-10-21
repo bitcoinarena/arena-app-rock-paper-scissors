@@ -6,6 +6,8 @@
   "registrations": [
     "plugin/rock-paper-scissors.js",
     "plugin/rock-paper-scissors-v2.js",
-    "plugin/rock-paper-scissors-v3.js"
+    "plugin/rock-paper-scissors-v3.js",
+    "plugin/rock-paper-scissors-v4.js",
+    "plugin/rock-paper-scissors-v5.js"
   ]
 }
