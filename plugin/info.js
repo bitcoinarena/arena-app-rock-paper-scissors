@@ -1,4 +1,4 @@
-// Rock Paper Scissors's description and website, signed by its developer key (kanban #276; arena-donor/bin/sign-game-info.mjs).
+// Rock Paper Scissors's description and website, signed by its developer key (arena-donor/bin/sign-game-info.mjs).
 // Beside the manifest, not in it: game 1e9ab4b7 keeps its id.
 export const INFO = Object.freeze({
   "description": "Rock Paper Scissors for bitcoin. Both players commit a hidden move, then reveal it; the winner takes the pot, a draw returns both stakes.",

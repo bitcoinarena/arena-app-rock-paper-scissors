@@ -1,5 +1,5 @@
-// ROCK PAPER SCISSORS' MANIFEST BODY (kanban #233), as its developer signs it with the dev client:
-//   node packages/arena-donor/bin/arena-donor.mjs sign ~/.config/blwp/rps-dev packages/rock-paper-scissors/plugin/manifest-body.mjs
+// ROCK PAPER SCISSORS' MANIFEST BODY, as its developer signs it with the dev client:
+//   node packages/arena-donor/bin/arena-donor.mjs sign <the developer key folder> packages/rock-paper-scissors/plugin/manifest-body.mjs
 // Its decide adapter (decide.js) and its client (../client/index.html) are named by their SHA-256, so a node installs only
 // that adapter for it and the page runs only that client. The developer key is the game's own (db57bd7a…).
 import { createHash } from 'node:crypto';
@@ -12,7 +12,7 @@ import { TESTNET4_DONATION_SET_KEYS } from 'arena-sdk/testnet4-donation-set-keys
 const sha = (b) => new Uint8Array(createHash('sha256').update(b).digest());
 export const RPS_DECIDE_HASH = sha(readFileSync(new URL('./decide.js', import.meta.url)));
 export const RPS_CONFIG_HASH = sha('rock-paper-scissors-config:v1');
-export const RPS_CLIENT_HASH = sha(readFileSync(new URL('../client/index-v2.html', import.meta.url)));   // versions 1 and 2's bytes (kanban #396 keeps them there)
+export const RPS_CLIENT_HASH = sha(readFileSync(new URL('../client/index-v2.html', import.meta.url)));   // versions 1 and 2's bytes (keeps them there)
 export const RPS_DEV_PUBKEY = fromHex('db57bd7ad41ef92d72fb53a6d4bf5f4b614150fadeedf5430be1af7814091dab');
 
 export const BODY = {
