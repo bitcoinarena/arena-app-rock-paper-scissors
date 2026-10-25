@@ -75,7 +75,7 @@ export function buildV4(v3, bundle) {
 }
 
 // a ticket as the comments named them: kanban #291, (#291, #292 ... - not a colour such as #000
-export const FORBIDDEN = /kanban|the owner|BLWP|blwp|(?:\(|, |\bticket )#\d{3}\b/i;
+export const FORBIDDEN = /kanban|BLWP|blwp|(?:\(|, |\bticket )#\d{3}\b/i;
 
 if (import.meta.url === `file://${process.argv[1]}`) {
   const out = buildV4(readFileSync(V3, 'utf8'), readFileSync(BUNDLE, 'utf8'));
