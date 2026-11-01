@@ -9,7 +9,7 @@
     "test": "node --test"
   },
   "dependencies": {
-    "arena-sdk": "github:a tester/arena-sdk#v0.3.0"
+    "arena-sdk": "github:bitcoinarena/arena-sdk#v0.3.0"
   },
   "devDependencies": {
     "esbuild": "0.25.12",
