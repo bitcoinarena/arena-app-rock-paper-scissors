@@ -22,4 +22,7 @@ await build({ entryPoints: [join(root, 'view/main-v5.jsx')], bundle: true, forma
 // VERSION 6'S VIEWS: version 5's with the reveal phase (view/main-v6.jsx) - versions 4's and 5's bundles above stay the same bytes
 await build({ entryPoints: [join(root, 'view/main-v6.jsx')], bundle: true, format: 'iife', minify: true, jsx: 'automatic', target: ['es2020', 'safari15'],
   define: { 'process.env.NODE_ENV': '"production"' }, outfile: join(root, 'dist/rps-view-v6.js'), legalComments: 'none', nodePaths: [join(from, 'node_modules')] });
-console.log(`built dist/rps-view.js, dist/rps-view-v5.js and dist/rps-view-v6.js (esbuild and React from ${from === root ? 'this package' : 'packages/arena-web'})`);
+// VERSION 7'S VIEWS: version 6's with one clock while a move is missing and the match opponent kept (view/main-v7.jsx, kanban #1361)
+await build({ entryPoints: [join(root, 'view/main-v7.jsx')], bundle: true, format: 'iife', minify: true, jsx: 'automatic', target: ['es2020', 'safari15'],
+  define: { 'process.env.NODE_ENV': '"production"' }, outfile: join(root, 'dist/rps-view-v7.js'), legalComments: 'none', nodePaths: [join(from, 'node_modules')] });
+console.log(`built dist/rps-view.js, dist/rps-view-v5.js, dist/rps-view-v6.js and dist/rps-view-v7.js (esbuild and React from ${from === root ? 'this package' : 'packages/arena-web'})`);
