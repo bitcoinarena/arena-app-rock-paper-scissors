@@ -25,4 +25,7 @@ await build({ entryPoints: [join(root, 'view/main-v6.jsx')], bundle: true, forma
 // VERSION 7'S VIEWS: version 6's with one clock while a move is missing and the match opponent kept (view/main-v7.jsx, kanban #1361)
 await build({ entryPoints: [join(root, 'view/main-v7.jsx')], bundle: true, format: 'iife', minify: true, jsx: 'automatic', target: ['es2020', 'safari15'],
   define: { 'process.env.NODE_ENV': '"production"' }, outfile: join(root, 'dist/rps-view-v7.js'), legalComments: 'none', nodePaths: [join(from, 'node_modules')] });
-console.log(`built dist/rps-view.js, dist/rps-view-v5.js, dist/rps-view-v6.js and dist/rps-view-v7.js (esbuild and React from ${from === root ? 'this package' : 'packages/arena-web'})`);
+// VERSION 10'S VIEWS: version 7's with the hands and every other picture drawn as SVG, and a paid round's stake and fees said (view/main-v10.jsx)
+await build({ entryPoints: [join(root, 'view/main-v10.jsx')], bundle: true, format: 'iife', minify: true, jsx: 'automatic', target: ['es2020', 'safari15'],
+  define: { 'process.env.NODE_ENV': '"production"' }, outfile: join(root, 'dist/rps-view-v10.js'), legalComments: 'none', nodePaths: [join(from, 'node_modules')] });
+console.log(`built dist/rps-view.js, dist/rps-view-v5.js, dist/rps-view-v6.js, dist/rps-view-v7.js and dist/rps-view-v10.js (esbuild and React from ${from === root ? 'this package' : 'packages/arena-web'})`);
