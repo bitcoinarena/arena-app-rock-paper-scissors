@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: LicenseRef-Bitcoin-Arena-1.0
 // Copyright (c) 2026 The Bitcoin Arena authors. See LICENSE.
-// ROCK PAPER SCISSORS' CLIENT VERSION 11 (kanban #2864, Daniel 2026-11-15: "8s runden und dann 5-10s aufdecken"): version 10 with the result shown
+// ROCK PAPER SCISSORS' CLIENT VERSION 11 (kanban #2864, the owner 2026-11-15: "8s runden und dann 5-10s aufdecken"): version 10 with the result shown
 // from the open moves as soon as both are revealed, and "signed" added when the seats' signed result arrives - never shown as signed before it is.
 // - THE RESULT FROM THE OPEN MOVES: once this tab's move and the opponent's are both revealed (the seats serve them after the close + hold), the
 //   verdict is the rules' (paper beats rock, scissors beat paper, rock beats scissors) and shown at the end of the reveal ring, marked provisional.
