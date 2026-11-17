@@ -14,6 +14,7 @@
     "plugin/rock-paper-scissors-v8.js",
     "plugin/rock-paper-scissors-v9.js",
     "plugin/rock-paper-scissors-v10.js",
-    "plugin/rock-paper-scissors-v11.js"
+    "plugin/rock-paper-scissors-v11.js",
+    "plugin/rock-paper-scissors-v12.js"
   ]
 }
