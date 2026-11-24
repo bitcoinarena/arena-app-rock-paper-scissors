@@ -1033,8 +1033,9 @@ Error generating stack: `+a.message+`
           : { phase: 'none', prev, scoreboard };
       }
       // VERSION 11: provisional or signed, said under the table while a result is shown
+      // VERSION 14: the line is a row of its own below the game, never laid over the cost line at the foot of the pick panel
       { let el = document.getElementById('rps-signed'); if (!el) { el = document.createElement('div'); el.id = 'rps-signed'; el.setAttribute('role', 'status');
-          el.style.cssText = 'position:fixed;left:0;right:0;bottom:10px;text-align:center;font:600 12px/1.4 system-ui,-apple-system,sans-serif;color:#8b95a5;pointer-events:none;z-index:5'; document.body.appendChild(el); }
+          el.style.cssText = 'flex:none;min-height:17px;margin-top:4px;text-align:center;font:600 12px/1.4 system-ui,-apple-system,sans-serif;color:#8b95a5;pointer-events:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis'; document.body.appendChild(el); }
         const t = last && last.phase === 'result' ? (last.provisional ? 'From the open moves \u00b7 the seats are signing' : 'Signed by the seats') : '';
         if (el.textContent !== t) el.textContent = t; el.style.color = last && last.phase === 'result' && !last.provisional ? '#2fd38a' : '#8b95a5'; }
       // VERSION 13: the round on screen, and the one shown before it, are the rounds counted

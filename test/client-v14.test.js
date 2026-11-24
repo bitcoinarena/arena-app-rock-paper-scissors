@@ -53,3 +53,14 @@ test('#3234: an opponent whose move is not known yet is drawn with no move', () 
 test('#3234: a shown move is drawn as that move', () => {
   assert.equal(drawnOf({ theirs: 'scissors' }), 'scissors');
 });
+
+// THE "SEATS ARE SIGNING" LINE HAS A ROW OF ITS OWN (bitcoin-arena kanban #3564, feedback #423): versions 11-13 fixed it at bottom:10px, over the
+// pick panel's cost line - Chrome at 1920x1000: cost 966.8-983 px, the line 973.2-990 px. RPS_CLIENT=client/index-v13.html fails here.
+test('the provisional / signed line is a row of its own, never fixed over the page', () => {
+  const at = UNDER.indexOf("el.id = 'rps-signed'");
+  assert.ok(at > 0, 'the client makes no #rps-signed line');
+  const css = UNDER.slice(UNDER.indexOf('el.style.cssText = ', at), UNDER.indexOf('document.body.appendChild(el)', at));
+  assert.doesNotMatch(css, /position:\s*(fixed|absolute)/, 'the line is laid over the page: ' + css);
+  assert.match(css, /flex:\s*none/, 'the line is not a row of the page\'s column');
+  assert.match(css, /min-height:\s*\d+px/, 'the row does not keep its height while empty');
+});

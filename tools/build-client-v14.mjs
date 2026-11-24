@@ -6,6 +6,9 @@
 // - WHO IS ACROSS, IN EVERY PHASE: reveal and result read the opponent as pick and wait do - 'in' once their move is in, 'here' when
 //   someone is there, 'absent' (the ghost seat) when nobody came; version 13 said 'here' there whatever happened.
 // - AN UNKNOWN MOVE IS NO MOVE: the opponent's hand rests open (the idle pose) until their move is known; the reveal still plays it.
+// - THE "SEATS ARE SIGNING" LINE HAS A ROW OF ITS OWN (bitcoin-arena kanban #3564, feedback #423): version 11 to 13 fixed it 10 px above the
+//   bottom of the window, where the pick panel's cost line also ends - drawn over each other at every window size (Chrome 1920x1000: cost
+//   966.8-983 px, the line 973.2-990 px). It is a row of the page's column below the game, 17 px high while empty so nothing moves.
 // Written from client/index-v13.html.
 //
 //   node tools/build-client-v14.mjs
@@ -29,10 +32,17 @@ const DRAW_V13 = "        me.set(want.mine); them.set(want.theirs === 'absent' |
 const DRAW_V14 = "        // VERSION 14: a move not shown is drawn as no move - the open, resting hand - never as rock\n"
   + "        me.set(want.mine); them.set(want.theirs === 'absent' || want.theirs === 'here' || want.theirs === 'in' ? 'idle' : want.theirs);\n";
 
+const SIGNED_V13 = "      { let el = document.getElementById('rps-signed'); if (!el) { el = document.createElement('div'); el.id = 'rps-signed'; el.setAttribute('role', 'status');\n"
+  + "          el.style.cssText = 'position:fixed;left:0;right:0;bottom:10px;text-align:center;font:600 12px/1.4 system-ui,-apple-system,sans-serif;color:#8b95a5;pointer-events:none;z-index:5'; document.body.appendChild(el); }\n";
+const SIGNED_V14 = "      // VERSION 14: the line is a row of its own below the game, never laid over the cost line at the foot of the pick panel\n"
+  + "      { let el = document.getElementById('rps-signed'); if (!el) { el = document.createElement('div'); el.id = 'rps-signed'; el.setAttribute('role', 'status');\n"
+  + "          el.style.cssText = 'flex:none;min-height:17px;margin-top:4px;text-align:center;font:600 12px/1.4 system-ui,-apple-system,sans-serif;color:#8b95a5;pointer-events:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis'; document.body.appendChild(el); }\n";
+
 export function buildV14(v13) {
   let s = v13;
   s = once(s, THEIRS_V13, THEIRS_V14);
   s = once(s, DRAW_V13, DRAW_V14);
+  s = once(s, SIGNED_V13, SIGNED_V14);
   return s;
 }
 
